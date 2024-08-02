@@ -1,3 +1,4 @@
 p{
-    display: inline;
+    display: inline-block;
+    margin: 0;
 }
