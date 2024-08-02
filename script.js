@@ -13,6 +13,7 @@ function addRing() {
     let select = document.createElement("select");
     let number = document.createElement("input");
     let range = document.createElement("input");
+    let p = document.createElement("p");
     select.id = "type" + String(ringCount);
     number.id = "group" + String(ringCount);
     number.setAttribute("type", "number");
@@ -27,9 +28,13 @@ function addRing() {
         option.innerHTML = options[i];
         select.appendChild(option);
     }
+    range.addEventListener("input", function () {
+        this.nextElementSibling.innerHTML = this.value + "/16";
+    });
     tds[0].appendChild(select);
     tds[1].appendChild(number);
     tds[2].appendChild(range);
+    tds[2].appendChild(p);
     tr.appendChild(tds[0]);
     tr.appendChild(tds[1]);
     tr.appendChild(tds[2]);
