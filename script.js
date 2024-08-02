@@ -8,5 +8,9 @@ function addRing() {
     let tr = document.createElement("tr");
     let select = document.createElement("select");
     let number = document.createElement("input");
-    let 
+    let range = document.createElement("range");
+    
+    for (let i = 0; i < colors.length; i++) {
+        
+    }
 }
