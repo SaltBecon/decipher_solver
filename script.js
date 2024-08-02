@@ -1,1 +1,1 @@
-
+const inputTable = document.getElementById("input_table");
