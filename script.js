@@ -18,6 +18,13 @@ function addRing() {
     range.setAttribute("max", "15");
     range.setAttribute("step", "1");
     for (let i = 0; i < colors.length; i++) {
-        
+        let option = document.createElement("option");
+        option.setAttribute("value",colors[i]);
+        option.innerHTML = options[i];
+        select.appendChild(option);
     }
+    tr.appendChild(select);
+    tr.appendChild(number);
+    tr.appendChild(range);
+    inputTable.appendChild(tr);
 }
