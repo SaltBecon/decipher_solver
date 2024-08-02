@@ -10,6 +10,7 @@ function addRing() {
     let number = document.createElement("input");
     let range = document.createElement("range");
     
+    select.id = 
     for (let i = 0; i < colors.length; i++) {
         
     }
