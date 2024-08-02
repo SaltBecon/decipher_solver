@@ -9,8 +9,14 @@ function addRing() {
     let select = document.createElement("select");
     let number = document.createElement("input");
     let range = document.createElement("range");
-    
-    select.id = 
+    select.id = "type" + String(ringCount);
+    number.id = "group" + String(ringCount);
+    number.setAttribute("type", "number");
+    range.id = "rotation" + String(ringCount);
+    range.setAttribute("type", "range");
+    range.setAttribute("min", "0");
+    range.setAttribute("max", "15");
+    range.setAttribute("step", "1");
     for (let i = 0; i < colors.length; i++) {
         
     }
