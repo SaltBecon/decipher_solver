@@ -5,6 +5,11 @@ let ringCount = 0;
 
 function addRing() {
     let tr = document.createElement("tr");
+    let tds = [
+        document.createElement("td"),
+        document.createElement("td"),
+        document.createElement("td")
+    ];
     let select = document.createElement("select");
     let number = document.createElement("input");
     let range = document.createElement("input");
@@ -22,9 +27,12 @@ function addRing() {
         option.innerHTML = options[i];
         select.appendChild(option);
     }
-    tr.appendChild(select);
-    tr.appendChild(number);
-    tr.appendChild(range);
+    tds[0].appendChild(select);
+    tds[1].appendChild(number);
+    tds[2].appendChild(range);
+    tr.appendChild(tds[0]);
+    tr.appendChild(tds[1]);
+    tr.appendChild(tds[2]);
     inputTable.appendChild(tr);
     ringCount++;
 }
