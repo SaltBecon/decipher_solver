@@ -7,7 +7,7 @@ function addRing() {
     let tr = document.createElement("tr");
     let select = document.createElement("select");
     let number = document.createElement("input");
-    let range = document.createElement("range");
+    let range = document.createElement("input");
     select.id = "type" + String(ringCount);
     number.id = "group" + String(ringCount);
     number.setAttribute("type", "number");
