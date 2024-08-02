@@ -1,1 +1,30 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>「Decipher」を解くやつ</title>
+  </head>
+  <body>
+    <table id=input_table>
+        <tr>
+            <th>種類</th>
+            <th>グループ</th>
+            <th>回したい回転数(n/16)</th>
+        </tr>
+        <tr>
+            <td><select id=type1>
+                <option value="purple">紫色, 2重線</option>
+                <option value="sky_blue">水色</option>                
+                <option value="yellow">黄色</option>
+                <option value="red">赤色</option>
+                <option value="red_purple">赤紫色, 太い点線</option>
+                <option value="blue">青色, 丸付き</option>
+            </select></td>
+            <th><input type="number" id="group1"></th>
+            <th><input type="range" id="rotation1" min=0 max=15></th>
+        </tr>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
