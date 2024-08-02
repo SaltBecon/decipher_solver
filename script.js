@@ -19,9 +19,11 @@ function addRing() {
     number.setAttribute("type", "number");
     range.id = "rotation" + String(ringCount);
     range.setAttribute("type", "range");
+    range.setAttribute("value", "12/16");
     range.setAttribute("min", "0");
     range.setAttribute("max", "15");
     range.setAttribute("step", "1");
+    p.innerHTML = "12/16";
     for (let i = 0; i < colors.length; i++) {
         let option = document.createElement("option");
         option.setAttribute("value",colors[i]);
