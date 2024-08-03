@@ -8,22 +8,22 @@ function addRing() {
     let tds = [
         document.createElement("td"),
         document.createElement("td"),
+        document.createElement("td"),
         document.createElement("td")
     ];
+    let index = document.createElement("p");
     let select = document.createElement("select");
     let number = document.createElement("input");
     let range = document.createElement("input");
-    let p = document.createElement("p");
-    select.id = "type" + String(ringCount);
-    number.id = "group" + String(ringCount);
+    let rangeValue = document.createElement("p");
+    index.innerHTML = ringCount + 1;
     number.setAttribute("type", "number");
-    range.id = "rotation" + String(ringCount);
     range.setAttribute("type", "range");
     range.setAttribute("value", "12/16");
     range.setAttribute("min", "0");
     range.setAttribute("max", "15");
     range.setAttribute("step", "1");
-    p.innerHTML = "8/16";
+    rangeValue.innerHTML = "8/16";
     for (let i = 0; i < colors.length; i++) {
         let option = document.createElement("option");
         option.setAttribute("value",colors[i]);
@@ -33,13 +33,15 @@ function addRing() {
     range.addEventListener("input", function () {
         this.nextElementSibling.innerHTML = this.value + "/16";
     });
-    tds[0].appendChild(select);
-    tds[1].appendChild(number);
-    tds[2].appendChild(range);
-    tds[2].appendChild(p);
+    tds[0].appendChild(index);
+    tds[1].appendChild(select);
+    tds[2].appendChild(number);
+    tds[3].appendChild(range);
+    tds[3].appendChild(rangeValue);
     tr.appendChild(tds[0]);
     tr.appendChild(tds[1]);
     tr.appendChild(tds[2]);
+    tr.appendChild(tds[3]);
     inputTable.appendChild(tr);
     ringCount++;
 }
@@ -55,8 +57,8 @@ function solve() {
     let input = [];
     for (let i = 1; i < inputTable.rows.length; i++) {
         input.push([]);
-        for (const cell of inputTable.rows[i].cells) {
-            input[i - 1].push(cell.firstElementChild.value);
+        for (let j = 1; j < inputTable.rows[i].cells.length; j++) {
+            input[i - 1].push(inputTable.rows[i].cells[j].firstElementChild.value);
         }
     }
     document.getElementById("console").innerHTML=input.toString();
