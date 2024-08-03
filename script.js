@@ -59,7 +59,7 @@ function solve() {
             input[i - 1].push(cell.firstElementChild.value);
         }
     }
-    
+    document.getElementById("console").innerHTML=input.toString();
     let matrix = [];
     for (let i = 0; i > ringCount; i++) {
         matrix.push([]);
