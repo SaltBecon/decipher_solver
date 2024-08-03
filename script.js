@@ -63,12 +63,50 @@ function solve() {
     }
     document.getElementById("console").innerHTML=input.toString();
     let matrix = [];
-    for (let i = 0; i > ringCount; i++) {
+    for (let i = 0; i < ringCount; i++) {
         matrix.push([]);
-        for (let j = 0; j > ringCount + 1; j++) {
+        for (let j = 0; j < ringCount + 1; j++) {
             matrix[i].push(0);
         }
     }
+    input.forEach((ring, index) => {
+        for (let i = 0; i < ringCount; i++) {
+            switch (ring[0]) {
+                case colors[0]:
+                    if (input[i][1] == ring[1]){
+                        matrix[i][index] = 1;
+                    }
+                    break;
+                case colors[1]:
+                    if (input[i][0] == ring[0]){
+                        matrix[i][index] = 1;
+                    }
+                    break;
+                case colors[2]:
+                    matrix[i][index] = 1;
+                    break;
+                case colors[3]:
+                    if (input[i][1] == ring[1]){
+                        matrix[i][index] = -1;
+                    }
+                    break;
+                case colors[4]:
+                    if (input[i][0] != ring[0]){
+                        matrix[i][index] = 1;
+                    }
+                    break;
+                case colors[5]:
+                    if (input[i][1] == ring[1]){
+                        matrix[i][index] = 0.5;
+                    }
+                    break;
+            }
+        }
+        matrix[index][ringCount] = ring[2] / 16;
+    });
     
+    for (let i = 0; i < ringCount; i++) {
+        matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort)
+    }
 }
 addRing();
