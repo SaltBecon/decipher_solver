@@ -1,6 +1,6 @@
 const inputTable = document.getElementById("input_table");
-const colors = ["purple", "sky_blue", "yellow", "red", "purplish_red", "blue", green];
-const options = ["紫色(2重線)", "水色", "黄色", "赤色", "赤紫色(太い点線)", "青色(丸付きの線)", 緑色];
+const colors = ["purple", "sky_blue", "yellow", "red", "purplish_red", "blue", "green"];
+const options = ["紫色(2重線)", "水色", "黄色", "赤色", "赤紫色(太い点線)", "青色(丸付きの線)", "緑色"];
 let ringCount = 0;
 
 function addRing() {
