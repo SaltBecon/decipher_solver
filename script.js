@@ -44,4 +44,10 @@ function addRing() {
     ringCount++;
 }
 
+function removeRing() {
+    if (ringCount >= 2){
+        inputTable.deleteRaw(inputTable.raws.length - 1);
+        ringCount--;
+    }
+}
 addRing();
