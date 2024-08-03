@@ -1,6 +1,6 @@
 const inputTable = document.getElementById("input_table");
-const colors = ["purple", "sky_blue", "yellow", "red", "purplish_red", "blue"];
-const options = ["紫色(2重線)", "水色", "黄色", "赤色", "赤紫色(太い点線)", "青色(丸付きの線)"];
+const colors = ["purple", "sky_blue", "yellow", "red", "purplish_red", "blue", green];
+const options = ["紫色(2重線)", "水色", "黄色", "赤色", "赤紫色(太い点線)", "青色(丸付きの線)", 緑色];
 let ringCount = 0;
 
 function addRing() {
@@ -90,13 +90,23 @@ function solve() {
                     }
                     break;
                 case colors[4]:
-                    if (input[i][0] != ring[0]){
+                    if (input[i][0] != ring[0] || i == index){
                         matrix[i][index] = 1;
                     }
                     break;
                 case colors[5]:
                     if (input[i][1] == ring[1]){
                         matrix[i][index] = 0.5;
+                    }
+                    break;
+                case colors[6]:
+                    if (input[i][0] == ring[0]){
+                        if (i == index){
+                            matrix[i][index] = 1;
+                        }else{
+                            matrix[i][index] = -1;
+                        }
+                        
                     }
                     break;
             }
