@@ -23,7 +23,7 @@ function addRing() {
     range.setAttribute("min", "0");
     range.setAttribute("max", "15");
     range.setAttribute("step", "1");
-    p.innerHTML = "12/16";
+    p.innerHTML = "8/16";
     for (let i = 0; i < colors.length; i++) {
         let option = document.createElement("option");
         option.setAttribute("value",colors[i]);
@@ -45,9 +45,28 @@ function addRing() {
 }
 
 function removeRing() {
-    if (ringCount >= 2){
+    if (ringCount >= 2) {
         inputTable.deleteRow(inputTable.rows.length - 1);
         ringCount--;
     }
+}
+
+function solve() {
+    let input = [];
+    for (let i = 1; i < inputTable.rows.length; i++) {
+        input.push([]);
+        for (const cell of inputTable.rows[i].cells) {
+            input[i - 1].push(cell.firstElementChild.value);
+        }
+    }
+    
+    let matrix = [];
+    for (let i = 0; i > ringCount; i++) {
+        matrix.push([]);
+        for (let j = 0; j > ringCount + 1; j++) {
+            matrix[i].push(0);
+        }
+    }
+    
 }
 addRing();
