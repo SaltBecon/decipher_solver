@@ -106,7 +106,7 @@ function solve() {
     });
     
     for (let i = 0; i < ringCount; i++) {
-        matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort)
+        matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return b[i] - a[i]}))
     }
 }
 addRing();
