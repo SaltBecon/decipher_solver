@@ -114,15 +114,15 @@ function solve() {
         matrix[index][ringCount] = ring[2] / 16;
     });
     document.getElementById("console").innerHTML=matrix.toString();
-    /*
     for (let i = 0; i < ringCount; i++) {
         matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return b[i] - a[i]}));
+        /*
         matrix[i] = matrix[i].map((a) => a / matrix[i][0]);
         for (let j = 0; j < ringCount; j++) {
             if (j = i){continue;}
             matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][0]);
         }
+        */
     }
-    */
 }
 addRing();
