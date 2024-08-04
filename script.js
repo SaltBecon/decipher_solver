@@ -112,7 +112,7 @@ function solve() {
                         break;
                 }
             }
-            if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount))[index] = 0) {
+            if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount))[index] == 0) {
                 matrix[index][ringCount] = ring[2];
             }
                 matrix[index][ringCount] = ring[2] - 16;
@@ -129,7 +129,7 @@ function solve() {
         }
         for (let i = 0; i < ringCount; i++) {
             if (matrix[i][ringCount] % 2 == 1) {
-                if (h = 2 ** ringCount - 1){
+                if (h == 2 ** ringCount - 1){
                     log("failed");
                 }
                 continue mainLoop;
