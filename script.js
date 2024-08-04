@@ -68,7 +68,7 @@ function solve() {
             matrix[i].push(0);
         }
     }
-    //mainLoop: for (let h = 0; h < 2 ** ringCount; h++){
+    mainLoop: for (let h = 0; h < 2 ** ringCount; h++){
         input.forEach((ring, index) => {
             for (let i = 0; i < ringCount; i++) {
                 switch (ring[0]) {
@@ -137,8 +137,8 @@ function solve() {
             }
         }
         break;
-    }
     */
+    }
 }
 
 function log(a){
