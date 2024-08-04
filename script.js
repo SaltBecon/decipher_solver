@@ -127,7 +127,7 @@ function solve() {
             matrix[i] = matrix[i].map((a) => a / matrix[i][i]);
             for (let j = 0; j < ringCount; j++) {
                 if (j == i){continue;}
-                matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * (matrix[j][i] / matrix[i][i]));
+                matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
             }
         }
         log(matrix);
