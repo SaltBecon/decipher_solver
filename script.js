@@ -69,7 +69,6 @@ function solve() {
         }
     }
     mainLoop: for (let h = 0; h < 2 ** ringCount; h++){
-        log("h: "+h);
         input.forEach((ring, index) => {
             for (let i = 0; i < ringCount; i++) {
                 switch (ring[0]) {
@@ -115,12 +114,8 @@ function solve() {
                 matrix[index][ringCount] = ring[2] - 16;
             }
         });
-        log("start");
-        logMatrix();
         for (let i = 0; i < ringCount; i++) {
             matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return Math.abs(b[i]) - Math.abs(a[i])}));
-            log("sort");
-            logMatrix();
             if (matrix[i][i] == 0){continue;}
             matrix[i] = matrix[i].map((a) => a / matrix[i][i]);
             log(`row${i} /= ${matrix[i][i]}`);
@@ -128,8 +123,6 @@ function solve() {
             for (let j = 0; j < ringCount; j++) {
                 if (j == i){continue;}
                 matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
-                log(`row${j} -= ${matrix[j][i]} * row${i}`);
-                logMatrix();
             }
         }
         for (let i = 0; i < ringCount; i++) {
@@ -140,6 +133,13 @@ function solve() {
                 continue mainLoop;
             }
         }
+        for (let i = 0; i < ringCount; i++) {
+            if(matrix[i][ringCount] == 0){continue;}
+            const str = matrix[i][ringCount].toString(2);
+            const exponent = str.length - str.findLastIndex("1") - 1;
+            matrix[i][ringCount] = matrix[i][ringCount] / exponent + "/" + 16 / 2 ** exponent;
+        }
+        logMatrix();
         break mainLoop;
     }
 }
