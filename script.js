@@ -68,7 +68,7 @@ function solve() {
             matrix[i].push(0);
         }
     }
-    for (let h = 0; h < 2 ** ringCount; h++){
+    mainLoop: for (let h = 0; h < 2 ** ringCount; h++){
         input.forEach((ring, index) => {
             for (let i = 0; i < ringCount; i++) {
                 switch (ring[0]) {
@@ -127,6 +127,15 @@ function solve() {
                 log(matrix.toString());
             }
         }
+        for (let i = 0; i < ringCount; i++) {
+            if (matrix[i][ringCount] % 2 == 1) {
+                if (h = 2 ** ringCount - 1){
+                    log("failed");
+                }
+                continue mainLoop;
+            }
+        }
+        break;
     }
 }
 
