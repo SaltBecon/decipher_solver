@@ -70,7 +70,6 @@ function solve() {
     }
     mainLoop: for (let h = 0; h < 2 ** ringCount; h++){
         log("h: "+h);
-        log("0".repeat(ringCount) + h.toString(2));
         input.forEach((ring, index) => {
             for (let i = 0; i < ringCount; i++) {
                 switch (ring[0]) {
@@ -120,21 +119,24 @@ function solve() {
                 matrix[index][ringCount] = ring[2] - 16;
             }
         });
-        log(matrix.map((x)=>x[ringCount]));
+        logMatrix();
         for (let i = 0; i < ringCount; i++) {
             matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return Math.abs(b[i]) - Math.abs(a[i])}));
+            log("sort");
+            logMatrix();
             if (matrix[i][i] == 0){continue;}
             matrix[i] = matrix[i].map((a) => a / matrix[i][i]);
+            log(`row${i} /= ${matrix[i][i]}`);
+            logMatrix();
             for (let j = 0; j < ringCount; j++) {
                 if (j == i){continue;}
                 matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
+                log(`row${j} -= ${matrix[j][i]} * row${i}`);
+                logMatrix();
             }
         }
-        log(matrix);
         for (let i = 0; i < ringCount; i++) {
             if (matrix[i][ringCount] % 2 == 1 || matrix[i][ringCount] % 2 == -1) {
-                log(matrix.map((x)=>x[ringCount]));
-                log("i: "+i);
                 if (h == 2 ** ringCount - 1){
                     log("failed");
                 }
@@ -149,5 +151,8 @@ function log(a){
     let p = document.createElement("p");
     p.innerHTML = a;
     document.body.appendChild(p);
+}
+function logMatrix(){
+    for (const row of matrix){log(row)}
 }
 addRing();
