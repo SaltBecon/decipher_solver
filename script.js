@@ -68,7 +68,7 @@ function solve() {
             matrix[i].push(0);
         }
     }
-    for (let i = 0; i < 2 ** ringCount; i++){
+    for (let h = 0; h < 2 ** ringCount; h++){
         input.forEach((ring, index) => {
             for (let i = 0; i < ringCount; i++) {
                 switch (ring[0]) {
@@ -112,8 +112,10 @@ function solve() {
                         break;
                 }
             }
-            if ()
-            matrix[index][ringCount] = ring[2];
+            if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount))[index] = 0) {
+                matrix[index][ringCount] = ring[2];
+            }
+                matrix[index][ringCount] = ring[2] - 16;
         });
         for (let i = 0; i < ringCount; i++) {
             matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return Math.abs(b[i]) - Math.abs(a[i])}));
