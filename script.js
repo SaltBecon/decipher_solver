@@ -139,7 +139,7 @@ function solve() {
             }
             */
         }
-        break;
+        break mainLoop;
     }
 }
 
