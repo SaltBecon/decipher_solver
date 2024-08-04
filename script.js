@@ -115,8 +115,9 @@ function solve() {
             }
             if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount)[index] == 0) {
                 matrix[index][ringCount] = ring[2];
-            }
+            }else{
                 matrix[index][ringCount] = ring[2] - 16;
+            }
         });
         log(matrix.map((x)=>x[ringCount]));
         for (let i = 0; i < ringCount; i++) {
