@@ -153,6 +153,6 @@ function log(a){
     document.body.appendChild(p);
 }
 function logMatrix(){
-    for (const row of matrix){log(row)}
+    for (let i = 0; i < ringCount; i++){log(Matrix[i])}
 }
 addRing();
