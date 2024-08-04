@@ -68,8 +68,6 @@ function solve() {
             matrix[i].push(0);
         }
     }
-    document.getElementById("console").innerHTML=matrix.toString();
-    /*
     input.forEach((ring, index) => {
         for (let i = 0; i < ringCount; i++) {
             switch (ring[0]) {
@@ -115,6 +113,8 @@ function solve() {
         }
         matrix[index][ringCount] = ring[2] / 16;
     });
+    document.getElementById("console").innerHTML=matrix.toString();
+    /*
     for (let i = 0; i < ringCount; i++) {
         matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return b[i] - a[i]}));
         matrix[i] = matrix[i].map((a) => a / matrix[i][0]);
