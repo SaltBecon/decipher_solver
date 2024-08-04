@@ -117,6 +117,7 @@ function solve() {
             }
                 matrix[index][ringCount] = ring[2] - 16;
         });
+        log(matrix.map((x)=>x[ringCount]));
         for (let i = 0; i < ringCount; i++) {
             matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return Math.abs(b[i]) - Math.abs(a[i])}));
             if (matrix[i][i] == 0){continue;}
@@ -124,11 +125,11 @@ function solve() {
             for (let j = 0; j < ringCount; j++) {
                 if (j == i){continue;}
                 matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
-                log(matrix.toString());
             }
         }
         for (let i = 0; i < ringCount; i++) {
             if (matrix[i][ringCount] % 2 == 1 || matrix[i][ringCount] % 2 == -1) {
+                log(matrix.map((x)=>x[ringCount]));
                 log(i);
                 if (h == 2 ** ringCount - 1){
                     log("failed");
