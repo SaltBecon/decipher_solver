@@ -138,6 +138,9 @@ function solve() {
             const str = matrix[i][ringCount].toString(2);
             const exponent = str.length - str.findLastIndex("1") - 1;
             matrix[i][ringCount] = matrix[i][ringCount] / exponent + "/" + 16 / 2 ** exponent;
+            if (matrix[i][ringCount] < 0) {
+                matrix[i][ringCount] = "-" + matrix[i][ringCount];
+            }
         }
         logMatrix();
         break mainLoop;
