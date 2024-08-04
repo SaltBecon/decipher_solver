@@ -150,7 +150,7 @@ function solve() {
 
 function log(a){
     let p = document.createElement("p");
-    p.innerHTML = a;
+    p.innerHTML = String(a);
     document.body.appendChild(p);
 }
 function logMatrix(){
