@@ -130,12 +130,14 @@ function solve() {
             }
         }
         for (let i = 0; i < ringCount; i++) {
+            /*
             if (matrix[i][ringCount] % 2 == 1) {
                 if (h == 2 ** ringCount - 1){
                     log("failed");
                 }
                 continue mainLoop;
             }
+            */
         }
         break;
     }
