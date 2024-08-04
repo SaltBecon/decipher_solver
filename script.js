@@ -92,7 +92,7 @@ function solve() {
                         }
                         break;
                     case colors[4]:
-                        if (input[i][0] != ring[0] || i == index){
+                        if (input[i][0] != ring[0]){
                             matrix[i][index] = 1;
                         }
                         break;
@@ -103,16 +103,12 @@ function solve() {
                         break;
                     case colors[6]:
                         if (input[i][0] == ring[0]){
-                            if (i == index){
-                                matrix[i][index] = 1;
-                            }else{
-                                matrix[i][index] = -1;
-                            }
-                        
+                            matrix[i][index] = -1;
                         }
                         break;
                 }
             }
+            matrix[index][index] = 1;
             if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount)[index] == 0) {
                 matrix[index][ringCount] = ring[2];
             }else{
