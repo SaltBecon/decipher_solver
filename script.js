@@ -61,8 +61,6 @@ function solve() {
             input[i - 1].push(inputTable.rows[i].cells[j].firstElementChild.value);
         }
     }
-    document.getElementById("console").innerHTML=input.toString();
-    /*
     let matrix = [];
     for (let i = 0; i < ringCount; i++) {
         matrix.push([]);
@@ -71,6 +69,7 @@ function solve() {
         }
     }
     document.getElementById("console").innerHTML=matrix.toString();
+    /*
     input.forEach((ring, index) => {
         for (let i = 0; i < ringCount; i++) {
             switch (ring[0]) {
