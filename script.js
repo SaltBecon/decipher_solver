@@ -52,7 +52,7 @@ function removeRing() {
         ringCount--;
     }
 }
-
+let matrix;
 function solve() {
     let input = [];
     for (let i = 1; i < inputTable.rows.length; i++) {
@@ -61,7 +61,7 @@ function solve() {
             input[i - 1].push(inputTable.rows[i].cells[j].firstElementChild.value);
         }
     }
-    let matrix = [];
+    matrix = [];
     for (let i = 0; i < ringCount; i++) {
         matrix.push([]);
         for (let j = 0; j < ringCount + 1; j++) {
@@ -154,6 +154,6 @@ function log(a){
     document.body.appendChild(p);
 }
 function logMatrix(){
-    for (let i = 0; i < ringCount; i++){log(i);log(matrix[i].toString());}
+    for (let i = 0; i < ringCount; i++){log(matrix[i].toString())}
 }
 addRing();
