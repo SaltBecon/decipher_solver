@@ -70,6 +70,7 @@ function solve() {
     }
     mainLoop: for (let h = 0; h < 2 ** ringCount; h++){
         log("h: "+h);
+        log("0".repeat(ringCount) + h.toString(2));
         input.forEach((ring, index) => {
             for (let i = 0; i < ringCount; i++) {
                 switch (ring[0]) {
