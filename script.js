@@ -119,8 +119,14 @@ function solve() {
         for (let j = 0; j < ringCount; j++) {
             if (j == i){continue;}
             matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
+            log(matrix.toString());
         }
     }
-    document.getElementById("console").innerHTML=matrix.toString();
+}
+
+function log(a){
+    let p = document.createElement("p");
+    p.innerHTML = a;
+    document.body.appendChild(p);
 }
 addRing();
