@@ -130,6 +130,7 @@ function solve() {
                 matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
             }
         }
+        if(h==52){log(matrix)}
         for (let i = 0; i < ringCount; i++) {
             if (matrix[i][ringCount] % 2 == 1 || matrix[i][ringCount] % 2 == -1) {
                 log(matrix.map((x)=>x[ringCount]));
