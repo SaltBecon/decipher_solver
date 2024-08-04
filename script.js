@@ -113,10 +113,10 @@ function solve() {
                         break;
                 }
             }
-            //if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount))[index] == 0) {
+            if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount))[index] == 0) {
                 matrix[index][ringCount] = ring[2];
-            //}
-                //matrix[index][ringCount] = ring[2] - 16;
+            }
+                matrix[index][ringCount] = ring[2] - 16;
         });
         for (let i = 0; i < ringCount; i++) {
             matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return Math.abs(b[i]) - Math.abs(a[i])}));
