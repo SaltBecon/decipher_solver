@@ -113,6 +113,7 @@ function solve() {
                         break;
                 }
             }
+            log("0".repeat(ringCount) + h.toString(2)).slice(-ringCount));
             if (("0".repeat(ringCount) + h.toString(2)).slice(-ringCount))[index] == 0) {
                 matrix[index][ringCount] = ring[2];
             }
