@@ -150,10 +150,10 @@ function solve() {
 
 function log(a){
     let p = document.createElement("p");
-    p.innerHTML = String(a);
+    p.innerHTML = a;
     document.body.appendChild(p);
 }
 function logMatrix(){
-    for (let i = 0; i < ringCount; i++){log(i);log(matrix[i])}
+    for (let i = 0; i < ringCount; i++){log(i);log(matrix[i].toString());}
 }
 addRing();
