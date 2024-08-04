@@ -69,7 +69,6 @@ function solve() {
         }
     }
     mainLoop: for (let h = 0; h < 2 ** ringCount; h++){
-        log(h);
         input.forEach((ring, index) => {
             for (let i = 0; i < ringCount; i++) {
                 switch (ring[0]) {
@@ -129,7 +128,8 @@ function solve() {
             }
         }
         for (let i = 0; i < ringCount; i++) {
-            if (matrix[i][ringCount] % 2 == 1) {
+            if (matrix[i][ringCount] % 2 == 1 || matrix[i][ringCount] % 2 == -1) {
+                log(i);
                 if (h == 2 ** ringCount - 1){
                     log("failed");
                 }
