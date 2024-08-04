@@ -68,59 +68,62 @@ function solve() {
             matrix[i].push(0);
         }
     }
-    input.forEach((ring, index) => {
-        for (let i = 0; i < ringCount; i++) {
-            switch (ring[0]) {
-                case colors[0]:
-                    if (input[i][1] == ring[1]){
-                        matrix[i][index] = 1;
-                    }
-                    break;
-                case colors[1]:
-                    if (input[i][0] == ring[0]){
-                        matrix[i][index] = 1;
-                    }
-                    break;
-                case colors[2]:
-                    matrix[i][index] = 1;
-                    break;
-                case colors[3]:
-                    if (input[i][1] == ring[1]){
-                        matrix[i][index] = -1;
-                    }
-                    break;
-                case colors[4]:
-                    if (input[i][0] != ring[0] || i == index){
-                        matrix[i][index] = 1;
-                    }
-                    break;
-                case colors[5]:
-                    if (input[i][1] == ring[1]){
-                        matrix[i][index] = 0.5;
-                    }
-                    break;
-                case colors[6]:
-                    if (input[i][0] == ring[0]){
-                        if (i == index){
+    for (let i = 0; i < 2 ** ringCount; i++){
+        input.forEach((ring, index) => {
+            for (let i = 0; i < ringCount; i++) {
+                switch (ring[0]) {
+                    case colors[0]:
+                        if (input[i][1] == ring[1]){
                             matrix[i][index] = 1;
-                        }else{
+                        }
+                        break;
+                    case colors[1]:
+                        if (input[i][0] == ring[0]){
+                            matrix[i][index] = 1;
+                        }
+                        break;
+                    case colors[2]:
+                        matrix[i][index] = 1;
+                        break;
+                    case colors[3]:
+                        if (input[i][1] == ring[1]){
                             matrix[i][index] = -1;
                         }
+                        break;
+                    case colors[4]:
+                        if (input[i][0] != ring[0] || i == index){
+                            matrix[i][index] = 1;
+                        }
+                        break;
+                    case colors[5]:
+                        if (input[i][1] == ring[1]){
+                            matrix[i][index] = 0.5;
+                        }
+                        break;
+                    case colors[6]:
+                        if (input[i][0] == ring[0]){
+                            if (i == index){
+                                matrix[i][index] = 1;
+                            }else{
+                                matrix[i][index] = -1;
+                            }
                         
-                    }
-                    break;
+                        }
+                        break;
+                }
             }
-        }
-        matrix[index][ringCount] = ring[2] / 16;
-    });
-    for (let i = 0; i < ringCount; i++) {
-        matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return Math.abs(b[i]) - Math.abs(a[i])}));
-        if (matrix[i][i] == 0){continue;}
-        matrix[i] = matrix[i].map((a) => a / matrix[i][i]);
-        for (let j = 0; j < ringCount; j++) {
-            if (j == i){continue;}
-            matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
-            log(matrix.toString());
+            if ()
+            matrix[index][ringCount] = ring[2];
+        });
+        for (let i = 0; i < ringCount; i++) {
+            matrix = matrix.slice(0, i).concat(matrix.slice(i, ringCount).sort(function(a, b) {return Math.abs(b[i]) - Math.abs(a[i])}));
+            if (matrix[i][i] == 0){continue;}
+            matrix[i] = matrix[i].map((a) => a / matrix[i][i]);
+            for (let j = 0; j < ringCount; j++) {
+                if (j == i){continue;}
+                matrix[j] = matrix[j].map((a, k) => a - matrix[i][k] * matrix[j][i]);
+                log(matrix.toString());
+            }
         }
     }
 }
